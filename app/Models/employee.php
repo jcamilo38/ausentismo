@@ -7,5 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class employee extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'Firstname',
+        'LastName'.
+        'DocumentType',
+        'DocumentNumber',
+        'BaseSalary',
+        'SalaryDay',
+        'Position',
+        'Department',
+        'EPS',
+        'AFD',
+        'ARL,',
+        'Status',
+    ];
+
 }

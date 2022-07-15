@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class area extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'NameDepartment',
+        'employee_Id',
+
+    ];
+
 }

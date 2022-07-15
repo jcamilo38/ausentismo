@@ -15,15 +15,18 @@ return new class extends Migration
     {
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
+            $table->string('NameDepartment');
+            $table->unsignedBigInteger('employee_Id');
+            $table->foreign('employee_Id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
+
+
+
+
     public function down()
     {
         Schema::dropIfExists('areas');

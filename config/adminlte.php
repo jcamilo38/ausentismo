@@ -237,7 +237,7 @@ return [
          ['header' => 'REGISTRO DE EMPLEADOS'],
         [
             'text' => 'Empleados',
-            'url'  => 'empleado.employees.index',
+            'route'  => 'empleado.employees.index',
             'active'=> ['empleado/employees*'],
             'icon' => 'fas fa-glasses',
             'icon_color' =>'yellow'

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('Firstname');
+            $table->string('FirstName');
             $table->string('LastName');
             $table->string('DocumentType');
-            $table->float('DocumentNumber');
-            $table->float('BaseSalary');
-            $table->float('SalaryDay');
+            $table->String('DocumentNumber');
+            $table->String('BaseSalary');
+            $table->String('SalaryDay');
             $table->string('Position');
             $table->string('Department');
             $table->string('EPS');

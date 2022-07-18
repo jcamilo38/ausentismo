@@ -16,7 +16,7 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Tipo Documento</th>
-                    <th>Numero</th>
+                    <th>Numero de Documento</th>
                     <th>Salario Base</th>
                     <th>Salario día</th>
                     <th>Cargo</th>
@@ -33,17 +33,17 @@
             <tbody>
                 @foreach ($employees as $employee)
                 <tr>
-                    <td>{{$employee->Firstname}}</td>
+                    <td>{{$employee->FirstName}}</td>
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>
                     <td>{{$employee->DocumentNumber}}</td>
                     <td>{{$employee->BaseSalary}}</td>
                     <td>{{$employee->SalaryDay}}</td>
+                    <td>{{$employee->Position}}</td>
                     <td>{{$employee->Department}}</td>
                     <td>{{$employee->EPS}}</td>
                     <td>{{$employee->ARL}}</td>
                     <td>{{$employee->AFD}}</td>
-                    <td>{{$employee->Firstname}}</td>
 
 
                     <td><a href="{{route('empleado.employees.edit', $employee)}}" class="btn btn-primary">Editar</a></td>

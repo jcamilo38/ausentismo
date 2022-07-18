@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class employee extends Model
 {
     protected $fillable = [
-        'Firstname',
-        'LastName'.
+        'FirstName',
+        'LastName',
         'DocumentType',
         'DocumentNumber',
         'BaseSalary',
@@ -18,7 +18,7 @@ class employee extends Model
         'Department',
         'EPS',
         'AFD',
-        'ARL,',
+        'ARL',
         'Status',
     ];
 

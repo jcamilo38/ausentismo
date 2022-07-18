@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Empleados')
 
 @section('content_header')
 <h3>Crear empleado</h3>
@@ -10,7 +10,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'administrador.users.store']) !!}
+            {!! Form::open(['route' => 'empleado.employees.store']) !!}
                 @include('empleado.employees.partials.form')
 
                 {!! Form::submit('Crear Empleado',['class' =>'btn btn-primary btn-md']) !!}

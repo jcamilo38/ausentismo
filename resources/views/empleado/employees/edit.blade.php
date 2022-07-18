@@ -3,16 +3,16 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h3>Editar Usuario</h3>
+<h3>Editar Empleado</h3>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-body">
-        {!! Form::model($user,['route' => ['administrador.users.update',$user], 'method'=>'put']) !!}
-            @include('administrador.users.partials.form')
+        {!! Form::model($employee,['route' => ['empleado.employees.update',$employee], 'method'=>'put']) !!}
+            @include('empleado.employees.partials.form')
 
-            {!! Form::submit('Editar usuario',['class' =>'btn btn-primary btn-md']) !!}
+            {!! Form::submit('Editar empleado',['class' =>'btn btn-primary btn-md']) !!}
             {!! Form::close() !!}
     </div>
 </div>

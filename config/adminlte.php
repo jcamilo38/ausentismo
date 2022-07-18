@@ -238,7 +238,7 @@ return [
         [
             'text' => 'Empleados',
             'route'  => 'empleado.employees.index',
-            'active'=> ['empleado/employees*'],
+            'active'=> ['Empleado/employees*'],
             'icon' => 'fas fa-glasses',
             'icon_color' =>'yellow'
         ],

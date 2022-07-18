@@ -1,8 +1,8 @@
 
 <div class="form-group">
-    {!! Form::label('Firstname', 'Nombre'); !!}
-    {!! Form::text('Firstname', null, ['class' => 'form-control'.($errors->has('Firstname') ? ' is-invalid':null), 'placeholder' => 'Ingrese el nombre']) !!}
-    @error('Firstname')
+    {!! Form::label('FirstName', 'Nombre'); !!}
+    {!! Form::text('FirstName', null, ['class' => 'form-control'.($errors->has('FirstName') ? ' is-invalid':null), 'placeholder' => 'Ingrese el nombre']) !!}
+    @error('FirstName')
     <span class="invalid-feedback" role="alert">
         <strong>*{{ $message }}</strong>
     </span>
@@ -21,8 +21,9 @@
         @enderror
     </div>
 
-    <div class="form-group">
-        {!!Form::select('DocumentType', ['CC' => 'Cédula de ciudadanía', 'CE' => 'Cédula de extranjería', 'TI'=>'Tarjeta de Identidad']);!!}
+   <div class="form-group">
+        {!! Form::label('DocumentType', 'Tipo de Documento');  !!}
+        {!! Form::text('DocumentType', null, ['class' => 'form-control'.($errors->has('DocumentType') ? ' is-invalid':null), 'placeholder' => 'Tipo de documento']) !!}
         @error('DocumentType')
         <span class="invalid-feedback" role="alert">
             <strong>*{{ $message }}</strong>
@@ -32,8 +33,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('DocumentNumber', 'Numero');  !!}
-        {!! Form::text('LastName', null, ['class' => 'form-control'.($errors->has('LastName') ? ' is-invalid':null), 'placeholder' => 'Número de documento']) !!}
+        {!! Form::label('DocumentNumber', 'Numero de documento');  !!}
+        {!! Form::text('DocumentNumber', null, ['class' => 'form-control'.($errors->has('DocumentNumber') ? ' is-invalid':null), 'placeholder' => 'Número de documento']) !!}
         @error('DocumentNumber')
         <span class="invalid-feedback" role="alert">
             <strong>*{{ $message }}</strong>
@@ -56,7 +57,7 @@
     <div class="form-group">
         {!! Form::label('SalaryDay', 'Salario día');  !!}
         {!! Form::text('SalaryDay', null, ['class' => 'form-control'.($errors->has('SalaryDay') ? ' is-invalid':null), 'placeholder' => 'Salario día']) !!}
-        @error('LastName')
+        @error('SalaryDay')
         <span class="invalid-feedback" role="alert">
             <strong>*{{ $message }}</strong>
         </span>
@@ -97,16 +98,7 @@
         @enderror
     </div>
 
-    <div class="form-group">
-        {!! Form::label('ARL', 'ARL');  !!}
-        {!! Form::text('ARL', null, ['class' => 'form-control'.($errors->has('ARL') ? ' is-invalid':null), 'placeholder' => 'Ingrese ARL del empleado']) !!}
-        @error('ARL')
-        <span class="invalid-feedback" role="alert">
-            <strong>*{{ $message }}</strong>
-        </span>
 
-        @enderror
-    </div>
     <div class="form-group">
         {!! Form::label('AFD', 'AFD');  !!}
         {!! Form::text('AFD', null, ['class' => 'form-control'.($errors->has('AFD') ? ' is-invalid':null), 'placeholder' => 'Ingrese AFD del empleado']) !!}
@@ -117,5 +109,19 @@
 
         @enderror
     </div>
+
+
+
+    <div class="form-group">
+        {!! Form::label('ARL', 'ARL');  !!}
+        {!! Form::text('ARL', null, ['class' => 'form-control'.($errors->has('ARL') ? ' is-invalid':null), 'placeholder' => 'Ingrese ARL del empleado']) !!}
+        @error('ARL')
+        <span class="invalid-feedback" role="alert">
+            <strong>*{{ $message }}</strong>
+        </span>
+
+        @enderror
+    </div>
+
 
 

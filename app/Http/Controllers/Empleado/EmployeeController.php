@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeStoreRequest;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserStoreRequest;
 use App\Models\employee;
 use Exception;
 use RealRashid\SweetAlert\Facades\Alert;
+
+
+
 class EmployeeController extends Controller
 {
 
     public function index()
     {
-       $employees= Employee::where('status','1')->get();
+       $employees= Employee::where('Status','1')->get();
+
        return view('empleado.employees.index',compact('employees'));
     }
 
@@ -24,23 +28,28 @@ class EmployeeController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(EmployeeStoreRequest $request)
     {
 
+
         try {
+
+
+
             Employee::create([
 
-                'Firstname'=> $request->FirstName,
+                'FirstName'=> $request->FirstName,
                 'LastName'=> $request->LastName,
                 'DocumentType'=> $request->DocumentType,
+                'DocumentNumber'=> $request->DocumentNumber,
                 'BaseSalary'=> $request->BaseSalary,
                 'SalaryDay'=> $request->SalaryDay,
                 'Position'=> $request->Position,
                 'Department'=> $request->Department,
                 'EPS'=> $request->EPS,
                 'AFD'=> $request->AFD,
-                'ARL,'=> $request->ARL,
-                'status' => '1',
+                'ARL'=> $request->ARL,
+                'Status' => '1',
 
             ]);
             Alert::toast('Registro guardado con exito!','success');
@@ -60,20 +69,61 @@ class EmployeeController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Employee $employee)
     {
-        //
+        return view('empleado.employees.edit',compact('employee'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Employee $employee)
     {
-        //
+        try
+        {
+
+            $employee->update([
+
+                'FirstName'=> $request->FirstName,
+                'LastName'=> $request->LastName,
+                'DocumentType'=> $request->DocumentType,
+                'DocumentNumber'=> $request->DocumentNumber,
+                'BaseSalary'=> $request->BaseSalary,
+                'SalaryDay'=> $request->SalaryDay,
+                'Position'=> $request->Position,
+                'Department'=> $request->Department,
+                'EPS'=> $request->EPS,
+                'AFD'=> $request->AFD,
+                'ARL'=> $request->ARL,
+
+
+            ]);
+            Alert::toast('Empleado editado con exito','success');
+            return redirect()->route('empleado.employees.index');
+        }
+
+        catch (\Exception $e)
+        {
+            Alert::toast('Ocurrio un error al actualizar','error');
+            return redirect()->route('empleado.employees.index');
+        }
     }
 
 
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        //
+         try{
+            $employee->update([
+
+                'Status' => '0'
+
+            ]);
+            Alert::toast('Usuario eliminado correctamente','success');
+            return redirect()->route('empleado.employees.index');
+
+        }
+
+        catch(Exception $e) {
+            Alert::toast('Error al eliminar','success');
+            return redirect()->route('empleado.employees.index');
+              }
     }
 }

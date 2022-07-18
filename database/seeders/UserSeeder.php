@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use PharIo\Manifest\Email;
@@ -25,6 +26,24 @@ class UserSeeder extends Seeder
          'email' => 'camilo@admin.com',
          'password' => bcrypt('123'),
          'status' => '1']);
+
+         Employee::create
+         ([
+         'FirstName' => 'Camilo',
+         'LastName' => '38',
+         'DocumentType'=>'CC',
+         'DocumentNumber'=>'12345678',
+         'BaseSalary'=>'3000000',
+         'SalaryDay'=>'35000',
+         'Position'=>'Soporte',
+         'Department'=>'Soporte',
+         'EPS'=>'Sura',
+         'AFD'=>'Comfama',
+         'ARL'=>'Sura',
+         'Status' => '1',
+
+
+         ]);
 
     }
 }

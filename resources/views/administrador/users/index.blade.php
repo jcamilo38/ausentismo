@@ -2,8 +2,11 @@
 
 @section('title', 'Usuarios')
 @section('content_header')
-<h3>Gestión de usuarios</h3>
+@can('administrador.users.create')
 <a href="{{route('administrador.users.create')}}" class="btn btn-primary">Crear usuario</a>
+@endcan
+<h3>Gestión de usuarios</h3>
+
 @stop
 
 @section('content')

@@ -12,6 +12,17 @@ class UserController extends Controller
 
 {
 
+    public function __construct()
+    {
+        //Busca un permiso y valida si el usuario lo tiene
+        $this->middleware('can:administrador.users.index');
+
+    }
+
+
+
+
+
     public function index()
     {
         $users = User::where('status','1')->get();

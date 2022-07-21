@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('LastName');
             $table->string('DocumentType');
             $table->String('DocumentNumber');
-            $table->String('BaseSalary');
-            $table->String('SalaryDay');
+            $table->bigInteger('BaseSalary');
+            $table->bigInteger('SalaryDay');
             $table->string('Position');
             $table->string('Department');
             $table->string('EPS');

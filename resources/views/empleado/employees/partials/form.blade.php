@@ -54,7 +54,7 @@
         @enderror
     </div>
 
-    <div class="form-group">
+   {{--  <div class="form-group">
         {!! Form::label('SalaryDay', 'Salario día');  !!}
         {!! Form::text('SalaryDay', null, ['class' => 'form-control'.($errors->has('SalaryDay') ? ' is-invalid':null), 'placeholder' => 'Salario día']) !!}
         @error('SalaryDay')
@@ -63,7 +63,7 @@
         </span>
 
         @enderror
-    </div>
+    </div> --}}
 
     <div class="form-group">
         {!! Form::label('Position', 'Cargo');  !!}

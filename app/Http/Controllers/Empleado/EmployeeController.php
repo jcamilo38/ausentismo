@@ -7,6 +7,12 @@ use App\Http\Requests\EmployeeStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\employee;
 use Exception;
+use Laravel\Sanctum\Sanctum;
+use Monolog\Handler\SamplingHandler;
+use ParagonIE\ConstantTime\Base64DotSlash;
+use phpDocumentor\Reflection\Types\This;
+use PhpParser\Node\Expr\Cast\Double;
+use Prophecy\Doubler\Doubler;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -26,6 +32,8 @@ class EmployeeController extends Controller
     {
         return view('empleado.employees.create');
     }
+
+
 
 
     public function store(EmployeeStoreRequest $request)
@@ -62,6 +70,14 @@ class EmployeeController extends Controller
              }
     }
 
+    public function calculosalario($SalaryDay, $BaseSalary)
+    {
+        $SalaryDay= ($BaseSalary/30);
+
+        return $SalaryDay;
+
+
+    }
 
     public function show($id)
     {

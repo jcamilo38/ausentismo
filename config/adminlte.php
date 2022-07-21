@@ -232,8 +232,20 @@ return [
             'route'  => 'administrador.users.index',
             'icon' => 'fas fa-fw fa-user',
             'active'=> ['administrador/users*'],
+            'can' => 'administrador.users.index',
             'icon_color' =>'blue'
         ],
+        [
+            'text' => 'Roles',
+            'route'  => 'administrador.roles.index',
+            'icon' => 'fas fa-users fa-fw',
+            'active'=> ['administrador/roles*'],
+            //'can' => 'administrador.roles.index',
+            'icon_color' =>'green'
+        ],
+
+
+
          ['header' => 'REGISTRO DE EMPLEADOS'],
         [
             'text' => 'Empleados',

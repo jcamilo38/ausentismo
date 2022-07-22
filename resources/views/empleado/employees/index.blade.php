@@ -43,7 +43,7 @@
                     <td>{{$employee->Department}}</td>
                     <td>{{$employee->EPS}}</td>
                     <td>{{$employee->ARL}}</td>
-                    <td>{{$employee->AFD}}</td>
+                    <td>{{$employee->AFP}}</td>
 
 
                     <td><a href="{{route('empleado.employees.edit', $employee)}}" class="btn btn-primary">Editar</a></td>

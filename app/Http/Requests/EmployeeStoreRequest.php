@@ -20,10 +20,11 @@ class EmployeeStoreRequest extends FormRequest
             'DocumentType'=> 'required',
             'DocumentNumber'=> 'required',
             'BaseSalary'=> 'required',
+            'SalaryDay'=> 'required',
             'Position'=> 'required',
             'Department'=> 'required',
             'EPS'=> 'required',
-            'AFD'=> 'required',
+            'AFP'=> 'required',
             'ARL'=> 'required',
 
         ];
@@ -42,7 +43,7 @@ class EmployeeStoreRequest extends FormRequest
             'Position.required'=> 'Debe ingresar cargo',
             'Department.required'=> 'Debe ingresar Area',
             'EPS.required'=> 'Debe ingresar EPS',
-            'AFD.required'=> 'Debe ingresar AFD',
+            'AFP.required'=> 'Debe ingresar AFP',
             'ARL.required'=> 'Debe ingresar ARL',
         ];
     }

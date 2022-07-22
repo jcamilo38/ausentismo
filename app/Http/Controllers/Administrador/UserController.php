@@ -4,59 +4,59 @@ namespace App\Http\Controllers\Administrador;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
-use Illuminate\Http\Request;
+use App\Models\Employee;
 use App\Models\User;
 use Exception;
+use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-class UserController extends Controller
+use Spatie\Permission\Models\Role;
 
+class UserController extends Controller
 {
 
     public function __construct()
     {
-        //Busca un permiso y valida si el usuario lo tiene
         $this->middleware('can:administrador.users.index');
-
     }
-
-
-
-
 
     public function index()
     {
         $users = User::where('status','1')->get();
-
-       return view('administrador.users.index', compact('users')); //Metodo compact envia variable a la vista
+        return view('administrador.users.index', compact('users'));
     }
 
-
-    public function create()
+public function create()
     {
-        return view('administrador.users.create');
+        //$employees =  Employee::pluck('full_name','id');
+        $employees = Employee::all();
+        $listaRoles = Role::pluck('name','id');
+        return view('administrador.users.create',compact('listaRoles','employees'));
     }
 
 
     public function store(UserStoreRequest $request)
     {
-        try {
-                User::create([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'status' => '1',
-                    'password' => bcrypt($request->password),
-                ]);
-                Alert::toast('Registro guardado con exito!','success');
-                return redirect()->route('administrador.users.index');
-            }
+        try
+        {
+            $result = Employee::find($request->employee);
+            //dd($request->employee);
+            $user = User::create([
+                'name' => $result->name.' '.$result->lastname,
+                'email' => $request->email,
+                'status' => '1',
+                'password' => bcrypt($request->password),
+                'employee_id' => $request->employee
+            ]);
+            $user->roles()->sync($request->roles);
+            Alert::toast('usuario guardado exitosamente', 'success');
+            return redirect()->route('administrador.users.index');
 
-               catch (Exception $e)
-                {
-                    return  "Ha ocurrido un error";
-                 }
-
+        }
+        catch(Exception $e)
+        {
+            return "ha ocurrido un error". $e;
+        }
     }
-
 
 
     public function show($id)
@@ -67,7 +67,10 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('administrador.users.edit', compact('user'));
+        //$employees = Employee::pluck('full_name','id');
+        $employees = Employee::all();
+        $listaRoles = Role::pluck('name','id');
+        return view('administrador.users.edit',compact('user','listaRoles','employees'));
     }
 
 
@@ -87,37 +90,37 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'status' => $user->status,
-                'password' => $password
+                'password'=> $password,
+                'employee_id' => $request->employee,
             ]);
-            Alert::toast('Usuario editado con exito','success');
+            $user->roles()->sync($request->roles);
+            Alert::toast('usuario editado exitosamente', 'success');
             return redirect()->route('administrador.users.index');
-        }
 
-        catch (\Exception $e)
+
+        }catch(Exception $e)
         {
-            Alert::toast('Ocurrio un error al actualizar','error');
+            Alert::toast('Ocurrio un error con la actualización', 'error');
             return redirect()->route('administrador.users.index');
         }
-
     }
+
 
     public function destroy(User $user)
     {
-        try{
+        try
+        {
             $user->update([
-
                 'status' => '0'
-
             ]);
-            Alert::toast('Usuario eliminado correctamente','success');
+            Alert::toast('usuario eliminado exitosamente', 'success');
             return redirect()->route('administrador.users.index');
-
         }
-
-        catch(Exception $e) {
-            Alert::toast('Error al eliminar','success');
+        catch(Exception $e)
+        {
+            Alert::toast('Ocurrio un error con la eliminación', 'error');
             return redirect()->route('administrador.users.index');
-              }
+        }
 
     }
 }

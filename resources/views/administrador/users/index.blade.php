@@ -1,62 +1,50 @@
 @extends('adminlte::page')
 
 @section('title', 'Usuarios')
+
 @section('content_header')
 @can('administrador.users.create')
-<a href="{{route('administrador.users.create')}}" class="btn btn-primary">Crear usuario</a>
+    <a class="btn btn-primary" href="{{route('administrador.users.create')}}">Crear usuario</a>
 @endcan
-<h3>Gestión de usuarios</h3>
-
+<h3>Gestion de usuarios</h3>
 @stop
 
 @section('content')
 @include('sweetalert::alert')
-    <div class="card">
-        <div class="card-body">
-           <table class="table table-striped" id="users">
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped" id="users">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
-                    <th> </th>
-                    <th> </th>
-
+                    <th></th>
+                    <th></th>
                 </tr>
-
-           </thead>
+            </thead>
             <tbody>
                 @foreach ($users as $user)
-                <tr>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td><a href="{{route('administrador.users.edit', $user)}}" class="btn btn-primary">Editar</a></td>
-                    <td>
-                        <form action="{{route('administrador.users.destroy', $user)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                        <button class="btn btn-danger btn-md" type="submit">Eliminar</button>
-                        </form>
-
-
-                </tr>
-
+                    <tr>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td width="10px"><a href="{{route('administrador.users.edit',$user)}}" class="btn btn-primary btn-sm">Editar</a></td>
+                        <td width="10px">
+                            <form action="{{route('administrador.users.destroy',$user)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
-
             </tbody>
-
-           </table>
-        </div>
+        </table>
     </div>
-
-
+</div>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop
 
 @push('js')
@@ -87,3 +75,5 @@
     });
 </script>
 @endpush
+
+

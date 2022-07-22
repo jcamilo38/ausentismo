@@ -17,9 +17,14 @@ class employee extends Model
         'Position',
         'Department',
         'EPS',
-        'AFD',
+        'AFP',
         'ARL',
         'Status',
     ];
 
+
+   /* public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->lastname}";
+    } */
 }

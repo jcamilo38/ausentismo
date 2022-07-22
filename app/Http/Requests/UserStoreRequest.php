@@ -16,9 +16,9 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required'
+           'name'=>'required',
+           'email'=>'required',
+           'password'=>'required'
 
         ];
 
@@ -27,9 +27,9 @@ class UserStoreRequest extends FormRequest
     public function messages(){
         return [
 
-        'name.required'=>'Debe ingresar un nombre de usuario',
-        'email.required'=>'Debe ingresar un email válido',
-        'password.required'=>'Debe ingresar una contraseña'
+        //'name.required'=>'Debe ingresar un nombre de usuario',
+       // 'email.required'=>'Debe ingresar un email válido',
+        //'password.required'=>'Debe ingresar una contraseña'
         ];
     }
 }

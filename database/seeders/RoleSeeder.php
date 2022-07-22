@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
     {
         //CREAR ROL
        $admin = Role::Create(['name' => 'ADMINISTRADOR']);
+
        //$basico = Role::Create(['name' => 'BASICO']);
        //Permisos para el Rol Administrativo
 

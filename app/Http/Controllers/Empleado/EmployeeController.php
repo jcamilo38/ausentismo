@@ -22,7 +22,7 @@ class EmployeeController extends Controller
 
     public function index()
     {
-       $employees= Employee::where('Status','1')->get();
+     $employees= Employee::where('Status','1')->get();
 
        return view('empleado.employees.index',compact('employees'));
     }
@@ -55,7 +55,7 @@ class EmployeeController extends Controller
                 'Position'=> $request->Position,
                 'Department'=> $request->Department,
                 'EPS'=> $request->EPS,
-                'AFD'=> $request->AFD,
+                'AFP'=> $request->AFP,
                 'ARL'=> $request->ARL,
                 'Status' => '1',
 
@@ -66,18 +66,10 @@ class EmployeeController extends Controller
 
            catch (Exception $e)
             {
-                return  "Ha ocurrido un error";
+                return  "Ha ocurrido un error".$e;
              }
     }
 
-    public function calculosalario($SalaryDay, $BaseSalary)
-    {
-        $SalaryDay= ($BaseSalary/30);
-
-        return $SalaryDay;
-
-
-    }
 
     public function show($id)
     {
@@ -107,7 +99,7 @@ class EmployeeController extends Controller
                 'Position'=> $request->Position,
                 'Department'=> $request->Department,
                 'EPS'=> $request->EPS,
-                'AFD'=> $request->AFD,
+                'AFP'=> $request->AFP,
                 'ARL'=> $request->ARL,
 
 
@@ -118,8 +110,9 @@ class EmployeeController extends Controller
 
         catch (\Exception $e)
         {
+            return "error".$e;
             Alert::toast('Ocurrio un error al actualizar','error');
-            return redirect()->route('empleado.employees.index');
+           // return redirect()->route('empleado.employees.index');
         }
     }
 

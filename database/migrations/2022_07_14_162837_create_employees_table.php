@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('DocumentType');
             $table->String('DocumentNumber');
             $table->bigInteger('BaseSalary');
-            $table->bigInteger('SalaryDay');
+            $table->bigInteger('SalaryDay')->nullable();
             $table->string('Position');
             $table->string('Department');
             $table->string('EPS');
-            $table->string('AFD');
+            $table->string('AFP');
             $table->string('ARL');
             $table->string('Status');
             $table->timestamps();

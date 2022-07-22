@@ -20,7 +20,6 @@ class EmployeeStoreRequest extends FormRequest
             'DocumentType'=> 'required',
             'DocumentNumber'=> 'required',
             'BaseSalary'=> 'required',
-            'SalaryDay'=> 'required',
             'Position'=> 'required',
             'Department'=> 'required',
             'EPS'=> 'required',

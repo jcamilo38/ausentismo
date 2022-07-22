@@ -39,6 +39,7 @@ class EmployeeController extends Controller
     public function store(EmployeeStoreRequest $request)
     {
 
+        $SalaryDay = $this->calculosalario(intval($request->BaseSalary));
 
         try {
 
@@ -51,7 +52,7 @@ class EmployeeController extends Controller
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,
                 'BaseSalary'=> $request->BaseSalary,
-                'SalaryDay'=> $request->SalaryDay,
+                'SalaryDay'=> $SalaryDay,
                 'Position'=> $request->Position,
                 'Department'=> $request->Department,
                 'EPS'=> $request->EPS,
@@ -70,6 +71,10 @@ class EmployeeController extends Controller
              }
     }
 
+    public function calculosalario($BaseSalary)
+    {
+        $SalaryDay = ($BaseSalary/30);
+    return $SalaryDay;    }
 
     public function show($id)
     {
@@ -85,6 +90,7 @@ class EmployeeController extends Controller
 
     public function update(Request $request, Employee $employee)
     {
+        $SalaryDay = $this->calculosalario(intval($request->BaseSalary));
         try
         {
 
@@ -95,7 +101,7 @@ class EmployeeController extends Controller
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,
                 'BaseSalary'=> $request->BaseSalary,
-                'SalaryDay'=> $request->SalaryDay,
+                'SalaryDay'=> $SalaryDay,
                 'Position'=> $request->Position,
                 'Department'=> $request->Department,
                 'EPS'=> $request->EPS,
@@ -110,9 +116,9 @@ class EmployeeController extends Controller
 
         catch (\Exception $e)
         {
-            return "error".$e;
+
             Alert::toast('Ocurrio un error al actualizar','error');
-           // return redirect()->route('empleado.employees.index');
+            return redirect()->route('empleado.employees.index');
         }
     }
 

@@ -31,8 +31,10 @@
 
            </thead>
             <tbody>
+
                 @foreach ($employees as $employee)
                 <tr>
+
                     <td>{{$employee->FirstName}}</td>
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>

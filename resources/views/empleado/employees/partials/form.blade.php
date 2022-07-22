@@ -112,7 +112,7 @@
                                 @enderror
                             </div> </div>
 
-                            <div class="col-md-2">
+                          {{--   <div class="col-md-2">
                             <div class="form-group">
                                 {!! Form::label('SalaryDay', 'Salario día');  !!}
                                 {!! Form::text('SalaryDay', null, ['class' => 'form-control'.($errors->has('SalaryDay') ? ' is-invalid':null), 'placeholder' => 'Salario día']) !!}
@@ -122,7 +122,7 @@
                                 </span>
 
                                 @enderror
-                            </div>  </div>
+                            </div>  </div> --}}
 
         </div>
     </div>

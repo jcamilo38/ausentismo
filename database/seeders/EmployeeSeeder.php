@@ -13,22 +13,22 @@ class EmployeeSeeder extends Seeder
     {
         Employee::create
         ([
-        'FirstName' => 'Camilo',
-        'LastName' => '38',
+        'FirstName' => 'Admin',
+        'LastName' => 'Admin',
         'DocumentType'=>'CC',
         'DocumentNumber'=>'12345678',
-        'BaseSalary'=>'3000000',
-        'SalaryDay'=>'35000',
-        'Position'=>'Desarrollador',
-        'Department'=>'Desarrollo web',
-        'EPS'=>'Sura',
-        'AFP'=>'Comfama',
-        'ARL'=>'Sura',
-        'Status' => '1',
+        'BaseSalary'=>'9999',
+        'SalaryDay'=>'0',
+        'Position'=>'N/A',
+        'Department'=>'N/A',
+        'EPS'=>'N/A',
+        'AFP'=>'N/A',
+        'ARL'=>'N/A',
+        'Status' => '0',
 
         ]);
 
-        Employee::create
+        /* Employee::create
         ([
         'FirstName' => 'Federico',
         'LastName' => 'Luna',
@@ -43,6 +43,6 @@ class EmployeeSeeder extends Seeder
         'ARL'=>'Sura',
         'Status' => '1',
 
-        ]);
+        ]); */
     }
 }

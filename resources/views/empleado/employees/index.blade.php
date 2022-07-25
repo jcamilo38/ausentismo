@@ -39,8 +39,8 @@
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>
                     <td>{{$employee->DocumentNumber}}</td>
-                    <td>{{$employee->BaseSalary}}</td>
-                    <td>{{$employee->SalaryDay}}</td>
+                    <td>${{$employee->BaseSalary}}</td>
+                    <td>${{$employee->SalaryDay}}</td>
                     <td>{{$employee->Position}}</td>
                     <td>{{$employee->Department}}</td>
                     <td>{{$employee->EPS}}</td>

@@ -41,7 +41,7 @@ public function create()
             $result = Employee::find($request->employee);
             //dd($request->employee);
             $user = User::create([
-                'name' => $result->name.' '.$result->lastname,
+                'name' => $result->FirstName.' '.$result->LastName,
                 'email' => $request->email,
                 'status' => '1',
                 'password' => bcrypt($request->password),
@@ -78,6 +78,8 @@ public function create()
     {
         try
         {
+            $user->update($request->all());
+            $result = Employee::find($request->id);
             if($request->password == null)
             {
                 $password = $user->password;
@@ -87,7 +89,7 @@ public function create()
                 $password = bcrypt($request->password);
             }
             $user->update([
-                'name' => $request->name,
+                'name' => $result->FirstName.' '.$result->LastName,
                 'email' => $request->email,
                 'status' => $user->status,
                 'password'=> $password,

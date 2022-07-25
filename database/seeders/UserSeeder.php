@@ -21,14 +21,14 @@ class UserSeeder extends Seeder
         'Status' => '1'
         ])->assignRole('Administrador');
 
-        User::create
+       /*  User::create
         ([
          'name' => 'Camilo',
          'email' => 'camilo@admin.com',
          'password' => bcrypt('123'),
          'employee_id' => '2',
          'Status' => '1'
-         ])->assignRole('Administrador');
+         ])->assignRole('Administrador'); */
 
 
 

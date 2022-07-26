@@ -78,8 +78,8 @@ public function create()
     {
         try
         {
+            $result = Employee::find($request->employee);
             $user->update($request->all());
-            $result = Employee::find($request->id);
             if($request->password == null)
             {
                 $password = $user->password;
@@ -95,6 +95,7 @@ public function create()
                 'password'=> $password,
                 'employee_id' => $request->employee,
             ]);
+
             $user->roles()->sync($request->roles);
             Alert::toast('usuario editado exitosamente', 'success');
             return redirect()->route('administrador.users.index');

@@ -240,7 +240,6 @@ return [
             'route'  => 'administrador.roles.index',
             'icon' => 'fas fa-users fa-fw',
             'active'=> ['administrador/roles*'],
-            //'can' => 'administrador.roles.index',
             'icon_color' =>'green'
         ],
 

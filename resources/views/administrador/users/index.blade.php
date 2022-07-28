@@ -3,7 +3,8 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-@can('administrador.users.create')
+
+@can('administrador.users.create') {{-- Para que solo los roles establecidos puedan ver el boton --}}
     <a class="btn btn-primary" href="{{route('administrador.users.create')}}">Crear usuario</a>
 @endcan
 <h3>Gestion de usuarios</h3>

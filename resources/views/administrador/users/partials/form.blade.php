@@ -38,11 +38,6 @@
     <div class="form-group">
         {!! Form::label('roles', 'Eliga un rol') !!}
         {!! Form::select('roles', $listaRoles, null, ['class' => 'form-control', 'placeholder' => '-- Eliga un rol --', 'style' => 'width:100%;']) !!}
-    {{--
-        @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>*{{ $message }}</strong>
-            </span>
-        @enderror --}}
+
     </div>
 
